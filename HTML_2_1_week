@@ -1,0 +1,92 @@
+ 의미없이 요소를 묶기 위한 태그(CONTAINER)
+별다른 의미없이 다른 목적으로 필요할 때 사용한다.
+
+<div>: block-level
+<span>: inline-level
+p태그는 블록요소임
+	실제로 자주 사용됨
+
+<ul>: unordered list로 순서가 없는 리스트
+<ol>: ordered list로 순서가 있는 리스트
+
+<dl>: description list로 용어를 설명하는 리스트
+<dt>: definition term로 용어를 구분한다.
+<dd>: definition description로 용어의 정의를 나타낸다.
+
+dd태그는 여러 개 들어갈 수 있음
+ ol 태그는 자식으로 li 태그만 가진다!
+중첩을 할 때는 li 태그 안에다가 해야함
+
+이미지(IMAGE)
+	문서에 이미지를 삽입한다.
+	src: 이미지 경로를 지정한다.
+	alt: 이미지의 대체 텍스트를 입력한다.
+	Width/height: 이미지의 크기를 지정한다.
+
+
+width or height의 값 중 하나만 줄여도 원본 이미지의 비율을 유지하게끔 줄어든다.
+상대 경로와 절대 경로가 존재함
+../ 이렇게 작성하면 상위 폴더로 이동
+
+	gif: 256색으로 제한적이지만 용량이 작고, 애니메이션과 투명 이미지가 가능하다.
+	jpg: 높은 압축률과 자연스러운 색상 표현이 가능하여 사진이나 일반적인 그림에 사용
+	png: jpg와 비교했을 때, 이미지 손실이 없고 투명과 반투명 모두 지원한다. 
+
+표(TABLE)
+	<td>, <th>: 데이터 셀
+	<tr>: 행(table-row)
+	<table>: 표
+제공해주는 border가 없으므로 아무것도 없는 것처럼 보임
+
+	<caption>: 표의 제목
+	<thead>: 제목 행을 그룹
+	<tfoot>: 바닥 행을 그룹
+	<tbody>: 본문 행을 그룹
+
+	colspan: 셀을 가로방향으로 병합
+	rowspan: 셀을 세로방향으로 병합
+수동으로 셀의 개수를 계산해서 조정해줘야함
+
+
+
+
+폼 관련 요소(FORM)
+서버에 데이터를 전달하기 위한 요소들
+
+INPUT 요소
+대표적인 폼 요소로, 다양한 type 속성으로 여러 종류의 입력 양식으로 나타난다.
+ex) text, password, radio, checkbox, file, image, submit, reset, button
+
+input 요소에 placeholder를 넣으면 text의 내용이 노출됨
+radio에 같은 name 값을 넣어주면 하나만 선택하게끔 됨
+checkbox도 name을 같이 해줘야 전달이 잘 됨 그리고 중복을 허용함
+button은 아무 기능이 없어 개발자가 추가해줘야 함
+
+SELECT 요소
+선택 목록상자(콤보박스)
+항목들이 리스트처럼 고를 수 있음
+<select> <option>
+
+TEXTAREA 요소
+여러 줄 텍스트 입력 상자
+<textarea>
+여러 줄을 받을 수 있고 크기도 조정 가능 함
+
+BUTTON 요소
+사용자가 클릭 가능한 버튼
+input button과 차이는 없지만 스타일적인 측면에서 조금 더 자유로운 표현이 가능함
+내용을 넣어줘야함
+LABEL 요소
+폼 컨트롤과 연결 시켜주기 위함으로 웹 접근성 향상에 도움이 된다.(필수적)
+<label for=””>를 사용하면 입력 요소와 매칭이 가능함
+
+FIELDSET, LEGEND 요소
+	<fieldset>: 여러 개의 폼 요소를 그룹화하여 구조적으로 만들기 위해 사용
+	<legend>: 폼 요소의 제목으로 <fieldset> 요소 내부에 작성
+그룹을 지어줌
+
+FORM 요소
+폼 데이터를 그룹화하여 서버에 전송한다.
+	action: 폼 데이터를 처리하기 위한 서버의 주소
+	method: 데이터를 전송하는 방식을 지정(get, post)
+get은 민감한 정보를 다루는 포맷에 사용하면 안 됨 => 그럴 때는 post로 받아야 함
