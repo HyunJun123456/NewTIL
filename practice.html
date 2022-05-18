@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            border: 1px solid black;
+            background-color: black;
+        }
+    </style>
+    <script>
+        function chgCol(){
+            let selectColor = document.getElementById("selectColor");
+            let div1 = document.getElementById("div1");
+            div1.style.backgroundColor = selectColor.value;
+        }
+
+
+        function setHalf(){
+            let div2 = document.getElementById("div2");
+            div2.style.width ='50px';
+            div2.style.height = '50px';   
+        }
+
+        function setDefault(){
+            let div2 = document.getElementById("div2");
+            div2.style.width ='100px';
+            div2.style.height = '100px';
+        }
+
+        function setDouble(){
+            let div2 = document.getElementById("div2");
+            div2.style.width = '200px';
+            div2.style.height = '200px';
+        }
+    </script>
+</head>
+<body>
+    <h3>문제1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보세요.</h3>
+    <div id="div1"></div>
+    <input type="color" id="selectColor">
+    <button onclick="chgCol();">변경</button>
+    <hr>
+    <br><br>
+
+    <h3>문제2. 버튼에 따른 크기 조절이 가능하게 만들어 보시오.</h3>
+    <div id="div2"> </div>
+    <button onclick="setHalf();">50x50</button>
+    <button onclick="setDefault();">100x100(원본)</button>
+    <button onclick="setDouble();">200x200</button>
+
+
+
+</body>
+</html>
