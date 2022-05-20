@@ -1,0 +1,44 @@
+html -> attribute
+css -> property
+
+선택자(SELECTOR)
+	요소 선택자(태그)
+	class 선택자
+	id 선택자
+	속성 선택자
+
+GROUPING
+선택자
+h1, h2, h3, h4, h5, h6 {}
+전체 선택자 (성능이 저하됨)
+*{}
+선언
+h1{여러 개 세미콜론 붙여야함}
+선택자&선언
+h1,h2, … {}
+
+CLASS 선택자
+CSS
+.foo{}
+HTML
+<p class=”foo”> … </p>
+
+
+다중 CLASS
+CSS
+.foo{}
+.bar{}
+HTML
+<p class=”foo bar”> … </p> 띄어쓰기로만 구분
+
+ID 선택자
+CSS
+#bar{}
+HTML
+<p id=”bar”> … </p>
+
+CLASS 선택자와의 차이점
+	기호가 아닌 #기호 사용
+	태그의 class 속성이 아닌 id 속성을 참조
+	문서내에 유일한 요소에 사용(id가 중복이면 적용이 잘 안됨)
+	구체성
