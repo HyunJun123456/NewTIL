@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func01(){
+            alert('명시적 함수');
+        }
+
+        let func02 = function(){
+            alert("익명 함수");
+        }
+
+        function func03(){
+            literalPrn(function(msg){
+                alert(msg);
+            });
+            // let lit = function(msg){
+            //     alert(msg);
+            // }
+            // literalPrn(lit);
+        }
+
+        function literalPrn(literal){
+            literal("안녕하세요, 리터럴입니다.");
+        }
+        // 굴러가는 메커니즘이 lit에 function을 담는다
+        // 거기에는 매개변수 값이 들어간다. 
+        // alert가 있으니 들어온 매개변수값을 출력한다.
+        // literalPrn이라는 함수에 lit를 담는다
+
+        // -----------------------------------------
+        // 화살표 함수
+
+        function basic(){
+            console.log();
+        }
+        let arrow =()=>{
+            console.log();
+        }
+        // 변수에 담는느낌
+
+
+        // [1] 실행 코드 한줄
+        function basic2(){
+            return 10;
+        }
+        let arrow2 =()=>10;
+        // 리턴을 생략함
+
+        function basic(no1, no2){
+            return no1+no2;
+        }
+        let arrow3 = (no1,no2)=>no1+no2;
+        let arrow4 = no1 => console.log(no1);
+        // 매개변수 하나일 경우에는 '()' 생략도 가능
+        // 인자가 없거나 여러개인 경우는 생략이 불가능
+
+        // [2] 여러줄
+        let arrow5 = ()=>{
+            console.log();
+            alert();
+        }
+
+        // --------------------------------------------
+        // 클로저
+        // 함수 안에 함수로 생각
+        // 안쪽에 있는 값을 인식하지 못하니
+        // 리턴을 해줘서 밖에서도 사용 가능하게끔 만든다.
+
+        function closureTest(val){
+            const msg = '였군요!';
+            function addVal(){
+                alert(val+"_"+msg);
+            }
+            return addVal;
+            /*
+            스코프는 함수를 호출할 때가 아니라 함수를 어디에 선언하였는지에 따라 결정된다. 
+            이를 렉시컬 스코핑(Lexical scoping)라 한다. 
+            위 예제의 함수 innerFunc는 함수 outerFunc의 내부에서 선언되었기 때문에 
+            함수 innerFunc의 상위 스코프는 함수 outerFunc이다. 
+            함수 innerFunc가 전역에 선언되었다면 함수 innerFunc의 상위 스코프는 
+            전역 스코프가 된다.
+            
+            나의 예제에서는 함수를 안에다가 선언하게 되면 안에 있는 함수에 밖에 있는 함수에 대해
+            전역변수 개념처럼 사용할 수 있어 msg를 함수 내에서도 사용할 수 있게 되는 개념
+            */
+        }
+
+        let dayEdu = closureTest('JavaScript');
+        // 함수 밖에서 msg는 사용할 수 없음
+        // 하지만 클로저를 통해서 가능
+
+        function weekEdu(val){
+            closureTest(val)();
+        }
+
+        function valTest(){
+            let val = "";
+            for(let i=0; i<arguments.length; i++){
+                val += arguments[i]+" ";
+            }
+            console.log(val);
+        }
+    </script>
+</head>
+<body>
+    <h1>함수!!</h1>
+    
+    <h2>종류</h2>
+    <p onclick="func01();">1. 명시적 함수</p>
+    <p onclick="func02();">2. 익명 함수</p>
+    <p onclick="func03();">3. 리터럴 함수</p>
+
+    <h2>클로저</h2>
+    <label for="day">평일 강의</label>
+        <input type="text" id="day" value="">
+        <input type="button" value="클릭" onclick="dayEdu();">
+    <br>
+    <label for="week">주말 강의</label>
+        <input type="text" id="week" value="default">
+        <input type="button" value="클릭" onclick="weekEdu(week.value);">
+    
+    <h2 onclick="valTest('multi', '캠퍼스', '5층');">args() 테스트</h2>
+
+</body>
+</html>

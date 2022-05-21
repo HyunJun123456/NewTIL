@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/test.js"></script>
+    <script>
+        function embeddedTest(){
+            var doc = document.getElementsByTagName("li")[1];
+            // var보다는 let을 쓰는게 더 좋음
+            // getElementsByTagName은 인덱스 값을 지정해줘야함
+            doc.style.color = "red";
+            doc.innerHTML = "<b>글자가 바뀝니다.</b>";
+        }
+    </script>
+</head>
+<body>
+    <h1>자바스크립트 작성방식 3가지</h1>
+    <ol>
+        <li onclick="alert('inline');">inline 방식</li>
+        <li onclick="embeddedTest();">내부 작성 방식(embedded)</li>
+        <li onclick="test();">외부 작성 방식</li>
+    </ol>
+</body>
+</html>

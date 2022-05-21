@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function prnConsole(){
+            console.log('콘솔에 출력하기');
+        }
+
+        function alertTest(){
+            window.alert('내용 출력');
+        }
+
+        function confirmTest(){
+            //let test = confirm("2교시가 맞나요?");
+            //console.log(test);
+            //true, false값으로 알려줌
+            if(confirm("배경을 분홍색으로 바꿀까요?")){
+                document.body.style.backgroundColor = 'pink';
+            }else{
+                console.log('기본 색상 유지');
+            }
+        }
+
+        function promptTest(){
+            //let test = window.prompt('입력하세요');
+            //console.log(test);
+            const txt = prompt('좋아하는 과목 번호를 선택해 주세요.\n[1.java 2.db 3.ui]');
+            switch(txt){
+                case "1":
+                    console.log('역시 자바');
+                    break;
+                    //break 걸어줘야 다음으로 넘어가지 않음
+                case "2":
+                    console.log("와우 디비");
+                    break;
+                case "3":
+                    console.log("오~ UI!!");
+                    break;
+                default:
+                    console.log("1,2,3 중에 하나 선택하세요.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>console.log()로 개발자도구 콘솔창에 출력하기</h3>
+    <button onclick="prnConsole();">콘솔에 내용 출력</button>
+    <hr>
+    <h2>window 객체에서 제공하는 대화형 함수</h2>
+    <h3>alert(): 단순 경고나 코드 디버깅용으로 사용</h3>
+    <button onclick="alertTest();">alert 테스트</button>
+
+    <h3>confirm(): 확인/취소 버튼 제공(true/false)</h3>
+    <button onclick="confirmTest();">confirm 테스트</button>
+
+    <h3>prompt(): 텍스트박스 제공, 확인/취소 버튼 제공</h3>
+    <button onclick="promptTest();">prompt 테스트</button>
+
+    <!-- confirm과 prompt는 둘다 확인/취소 버튼 제공함-->
+</body>
+</html>

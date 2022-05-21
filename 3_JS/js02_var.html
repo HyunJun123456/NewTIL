@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+    <script type="text/javascript">
+        console.log(test1);
+        var test1 = 1 ;
+        console.log(test1);
+        //var는 전역변수의 개념
+
+        //console.log(test2);
+        //let은 지역변수의 개념이라서 순차적으로 읽어서 에러가 뜸
+        let test2 = 2;
+        console.log(test2);
+
+        const test3 = 3;
+        //const는 무조건 초기화를 해줘야함
+        console.log(test3);
+        //test3 = 33;
+        //const는 값을 변경할 수 없음
+        {
+            var no = 10;
+            let no2 = 20;
+            const no3 = 30;
+
+            console.log(no);
+            console.log(no2);
+            console.log(no3);
+
+        }
+        console.log(no);
+        //console.log(no2);
+        //console.log(no3);
+        //let과 const는 지역변수의 개념이라서
+        //그 지역에서만 사용해야함
+
+        let variable = 10;
+        function test01(){
+            variable = variable + 5;
+            document.getElementById("v01").innerHTML = 
+                "<b style = 'color:red; background:yellow;'>" + variable + "<b>";
+        }
+
+        function test02(){
+            const variable2 = variable + 100;
+            document.getElementById("v02").innerHTML = 
+                "<b>" + variable2 + "<b>";
+        }
+        //const라서 variable의 값이 변하지 않는 이상 증가하지 않음
+        
+        function test03(){
+            //문자
+            var variable3 = "문자";
+            console.log(variable3 + " : "+typeof variable3);
+
+            //숫자
+            variable3 = 5.5;
+            console.log(variable3+" : " + typeof variable3);
+            //타입은 그때그때마다 바뀜
+
+            //논리
+            variable3 = true;
+            console.log(variable3+" : "+typeof variable3);
+
+            //널
+            variable3 = null;
+            console.log(variable3 + " : "+ typeof variable3);
+
+            //배열
+            variable3 = [1,3,5,7,9];
+            console.log(variable3+" : "+typeof variable3);
+
+            //함수
+            variable3 = function(){
+                alert("함수");
+            }
+            console.log(variable3+" : "+ typeof variable3);
+
+            //variable3();
+            //함수 실행 방법
+        }
+    </script>
+</head>
+<body>
+    <h1>변수의 사용</h1>
+
+    <dl>
+        <dt>선언 규칙</dt>
+        <dd>1. 대소문자 구분</dd>
+        <dd>2. 영문, $, _로 시작해야 한다.</dd>
+        <dd>3. 영문, $, _, 숫자를 포함할 수 있다.</dd>
+        <dd>4. 키워드나 예약어를 사용할 수 없다.</dd>
+
+        <dt>범위</dt>
+        <dd>1. 전역변수
+            <button onclick="test01();">확인</button>
+        </dd>    
+        <dd id="v01"></dd>
+
+        <dd>2. 지역변수
+            <button onclick="test02();">확인</button>
+        </dd>
+        <dd id="v02"></dd>
+
+        <dt>변수의 선언과 저장</dt>
+        <dd>1. var, let, const 키워드를 사용하여 변수 선언</dd>
+        <dd>2. 변수의 타입은 저장되는 데이터의 타입에 따라 결정된다.
+            <button onclick="test03();">확인</button>
+        </dd>
+    </dl>
+</body>
+</html>
