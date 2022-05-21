@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gallery{
+            width: 200px;
+            height: 250px;
+            vertical-align: middle;
+        }
+        a{
+            font-size: 40pt;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        let num = 1;
+        function nextGallery(){
+            num++;
+            if(num>3){
+                num=1;
+            }
+            document.getElementById("gallery").src = "image/img0"+num+".png";
+            return false;
+        }
+
+        function preGallery(){
+            num--;
+            if(num<1){
+                num = 3;
+            }
+            document.getElementById("gallery").src = "image/img0"+num+".png";
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <div id="galleryWrap">
+        <p>
+            <a onclick="return preGallery()" href="">◀️</a>
+            <!-- 
+                onclick에서 return false의 의미는 뭘까?
+                먼저 a태그를 클릭하면 href로 이동하는 액션을 취한다.
+                그러나 a태그에서 onclick이 있을 경우에는? 
+                onclick을 먼저 수행하고 href로 이동하는 액션을 취한다.
+                그러나 onclick에 return false가 있을 경우 href로 이동하는 액션을 취하지 않게 된다.
+
+                href 액션을 취소시키는 역할을 함
+            -->
+            <img src="image/img01.png" id="gallery">
+            <a onclick="return nextGallery()" href="">▶️</a>
+            <!-- 
+                링크로 넘어가지 않게 리턴에다가 false 값을 준다.
+            -->
+        </p>
+    </div>
+</body>
+</html>
