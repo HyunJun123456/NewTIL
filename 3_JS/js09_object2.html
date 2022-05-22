@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let test1 = ()=>{
+            let product = {
+                pName: "노트북",
+                type:  "컴퓨터",
+                price: 200,
+                spec: [100, 'window10'],
+                'i love' : 'you'
+                //변수가 아닌 문자도 키가 될 수 있음
+            }
+            console.log(product);
+            console.log("객체명['속성명']으로 접근하기---------------------");
+            console.log(product['pName']);
+            console.log(product['type']);
+            console.log(product['price']);
+            console.log(product['spec'][1]);
+            console.log("객체명.속성명으로 접근하기------------------------");
+            console.log(product.pName);
+            console.log(product.type);
+            console.log(product.price);
+            console.log(product.spec[0]);
+
+            //
+            console.log("키는 모든 문자열 사용 가능");
+            console.log(product['i love']);
+            //console.log(product."i love");
+            //이건 안됨 => 객체명[속성명]으로 접근해야함
+
+        }
+
+        function test2(){
+            let dog = {
+                name: '멍충이', //String
+                eat: function(food){//method
+                    //객체의 속성 중에 함수 자료형인 속성을 메소드라고 부른다.
+                    alert(this.name+'가 '+food+'를 먹고 있네요.');
+                    //this를 통해 자기자신의 name을 호출
+                }
+            }
+            dog.eat('바나나');
+            //매개변수까지 받아줌
+            
+        }
+
+        function test3(){
+            //객체의 속성을 확인 할때 단순 for문이 아닌 for in문을 사용하자!
+            let student={
+                name: '원현준',
+                kor: 95,
+                eng: 96,
+                math: 97
+            }
+            for(let key in student){
+                console.log(key+" : "+student[key]);
+            }
+        }
+
+        function test4(){
+            let person = {};
+            console.log(person);
+            //속성 추가
+            person.name = '원현준';
+            person.hobby = '낚시';
+            person.job = '학생';
+            person.dream = '어부';
+            console.log(person);
+
+            delete(person.job);
+            console.log(person);
+        }
+    </script>
+</head>
+<body>
+    <h1>객체 연습</h1>
+    <h3>객체 선언 및 호출</h3>
+    <button onclick="test1();">클릭!</button>
+    <h3>객체의 메소드 속성</h3>
+    <button onclick="test2();">클릭!!</button>
+    <h3>객체와 반복문</h3>
+    <button onclick="test3();">클릭!!!</button>
+    <h3>객체의 속성 추가</h3>
+    <button onclick="test4();">클릭!!!!</button>
+</body>
+</html>

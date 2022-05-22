@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let numberObj =()=>{
+            //1.작성방법
+            let num = new Number(7); //object
+            let num2 = 7; //number
+            console.log(num + ", "+num2);
+            
+            //메소드
+            num = '12';
+            Number.parseInt(num); //number로 변경
+
+            num2 = 333.34567;
+            console.log(num2.toFixed(3));
+            //소수점 세자리에서 반올림
+
+            num2 = 123;
+            console.log(num2.toString(16));
+            //16진수로 변환시켜줌
+        
+            //
+            //Infinity
+            const no1 = 1/0;
+            //-Infinity
+            const no2 = -1/0;
+            //NaN(Not a Number)
+            const no3 = 'string' / 2;
+            
+            console.log(no1);
+            console.log(no2);
+            console.log(no3);
+            console.log(parseInt('A'));
+            //string을 정수로 변환한 값을 리턴합니다.
+            //만약, string의 첫 글자를 정수로 변경할 수 없으면 NaN 값을 리턴합니다.
+            console.log(isNaN(no3));
+            //true => Number가 아니므로
+            if(isNaN(no3)){
+                console.log('유효하지 않은 값!!');
+            }else{
+
+            }
+        
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Number 객체</h1>
+    <p>정수와 실수를 다루는 객체</p>
+    <button onclick="numberObj();">클릭!</button>
+</body>
+</html>

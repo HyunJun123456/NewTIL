@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 객체 작성1
+        function myClass504(){
+            this.name = "멀티캠퍼스"; // 외부에서 접근 가능
+            let name02 = "504강의장"; //외부에서 접근 불가능
+            this.getName02=function(){
+                return name02;
+            }
+        }
+
+        // 객체 작성2
+        const myClass504_2 = {
+            name: '멀티캠퍼스', //필드
+            print: function(){ //메소드
+                alert(myClass504_2.name+ " : print");
+            }
+        }
+
+        // 프로토타입
+        myClass504.prototype.printName = function(){
+            let abc = '메롱';
+            alert(this.name+", "+this.getName02()+" : prototype "+abc);
+        }
+        
+        function objTest(){
+            let cls = new myClass504(); //객체 초기화(new 연산자를 통해)
+
+            // console.log(cls.name);
+            // console.log(cls.name02);
+            // console.log(cls.getName02());
+            // this를 이용해서 접근해야함
+            // getName02는 함수니깐 () <-이게 필요함 함수를 실행해야하니
+
+            // let cls2 = new myClass504_2(); 
+            // console.log(cls2.name);
+            // this나 return이 존재해야함 
+
+            console.log(myClass504_2.name);
+            alert(myClass504_2.name);
+            myClass504_2.print();
+
+            //
+            cls.printName();
+            // 프로토타입으로 불러오기
+        }
+    </script>
+</head>
+<body>
+    <h1>객체</h1>
+    <p>관련된 데이터와 함수의 집합</p>
+    <p>구성: 함수, 속성, this, 프로토타입</p>
+    <p>키값을 사용하여 속성을 식별한다.</p>
+    <button onclick="objTest();">객체</button>
+</body>
+</html>

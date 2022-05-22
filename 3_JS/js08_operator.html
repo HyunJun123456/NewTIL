@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const opTest = ()=>{
+            let check1 = 1;
+            let check2 = "1";
+
+            console.log(check1 == 1);
+            console.log(check1 == "1");
+            console.log(check2 == 1);
+            console.log(check2 == "1");
+
+            console.log(check1 === 1);
+            console.log(check1 === "1");
+            console.log(check2 === 1);
+            console.log(check2 === "1");
+
+
+        }
+    </script>
+</head>
+<body>
+    <h2>연산자</h2>
+    <h3>=== 연산자 !== 연산자</h3>
+    <p>값과 자료형이 일치하는지/일치하지 않는지 확인할 때 사용</p>
+    <button onclick="opTest();">확인하기</button>
+</body>
+</html>
