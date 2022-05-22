@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test(){
+            let val = document.getElementsByName('test')[0].value;
+            
+            window.opener.document.getElementById('tt').innerHTML = val;
+            //window.open을 이용하여 새로운 창을 열 수 있으며
+            //window.opener를 이용하여 팝업창에서 자신을 오픈한 부모창을 제어할 수 있습니다.
+            /*
+                window.open([페이지 URL], [타겟], [옵션]);
+            */
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="test">
+    <input type="button" onclick="test();" value="전달">
+    <!-- form이 없어서 전달이 안되는거임-->
+</body>
+</html>
