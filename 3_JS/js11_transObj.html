@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area1{
+            border: 1px solid red;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function test1(){
+            let doc = document.getElementById("area1");
+
+            let test = 7+7;
+            doc.innerHTML += '7 + 7 = '+test+"<br>";
+
+            test = 7 + "7";
+            doc.innerHTML += '7 + "7" = '+test+"<br>";
+
+            test = 7 + 7 + "7";
+            doc.innerHTML += '7 + 7 + "7" = '+ test +"<br>";
+        }
+
+        const numTest = val => {
+            //매개변수가 1개일 때는 괄호도 생략가능
+            console.log(val+": "+typeof(val));
+            //이 자체는 string
+
+            let vals = Number(val);
+            console.log(vals+": "+typeof(vals));
+            //기본으로 0이 들어감
+            console.log(`${vals} : ${typeof(vals)}`);
+            alert(`${vals} : ${typeof(vals)}`);
+
+        }
+
+        function intTest(val){
+            let vals = Number.parseInt(val)+15;
+            
+            console.log(`${vals}:${typeof(vals)}`);
+        }
+
+        function floatTest(val){
+            let vals = parseFloat(val)+15; //매개변수를 넣어줘야함
+            
+            console.log(`${vals} : ${typeof(vals)}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>데이터의 형변환</h1>
+    <h3>문자와 숫자의 '+'연산</h3>
+    <button onclick="test1();">클릭!</button>
+    <div id="area1" class="area1"></div>
+    <hr>
+    <h3>숫자형 형변환 number() 함수</h3>
+    <p>문자형의 정수/실수를 숫자형으로 변환시켜준다.</p>
+    <input type="text" id="num">
+    <button onclick="numTest(num.value);">확인</button>
+    <hr>
+    <h3>정수형 형변환 parseInt()</h3>
+    <h3>실수형 형변환 parseFloat()</h3>
+    <input type="text" id="no">
+    <button onclick="intTest(no.value);">정수형</button>
+    <button onclick="floatTest(no.value);">실수형</button>
+</body>
+</html>

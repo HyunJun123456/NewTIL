@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test1(){
+            var num = -123;
+
+            console.log('절댓값: '+Math.abs(num));
+            console.log("임의의 난수: "+ Math.random());
+            console.log('반올림: '+Math.round(123.456*100)/100);
+            //소수점 첫째자리에서 반올림하고 싶으면 100을 곱하고 다시 나눠줘야함
+            console.log("내림: "+Math.floor(123.456*10)/10);
+            console.log("올림: "+Math.ceil(123.456));
+            console.log(Math.PI);
+        }
+    </script>
+</head>
+<body>
+    <h3>Math</h3>
+    <button onclick="test1();">클릭!</button>
+</body>
+</html>

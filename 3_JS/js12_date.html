@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            document.getElementsByTagName("button")[0].onclick=function(){
+                let inputDate = document.getElementById('today');
+
+                let date = new Date(); //오늘 날짜
+                inputDate.innerHTML += date.toDateString()+"<br>";
+                inputDate.innerHTML += date.toLocaleDateString()+"<br>";
+                inputDate.innerHTML += date.toLocaleString()+"<br>";
+                inputDate.innerHTML += date.toLocaleTimeString()+"<br>";
+            }
+
+            document.getElementsByTagName('button')[1].onclick=()=>{
+                let date = new Date();
+
+                let year = date.getFullYear();
+                let month = date.getMonth()+1;
+                let day = date.getDate();
+                let week = date.getDay();
+
+                let arr = ['일', '월', '화', '수', '목', '금', '토'];
+                document.getElementById('specific').innerHTML = year +"/"+month+"/"+day+"/"+arr[week];
+
+                year = 2021;
+                month = 8;
+                day = 15;
+
+                date = new Date(year, month-1, day);
+                document.getElementById("specific").innerHTML += date;
+
+            }
+
+            document.getElementsByTagName('button')[2].onclick = testDate;
+        }
+
+        function testDate(){
+            let startDate = document.getElementById("startDate").value;
+            let endDate = document.getElementById("endDate").value;
+            //input이 date니 value값으로 받아오면됨
+            console.log(startDate);
+            console.log(endDate);
+            
+            let start = new Date(startDate);
+            let end = new Date(endDate);
+            //endDate - startDate를 빼주면 완성
+            let result = ((end.getTime() - start.getDate()) / (1000*60*60*24));
+            //밀리세컨으로 들어가서 저렇게 나눠줘야함
+
+            document.getElementById('res').value = result;
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>오늘 날짜 출력하기</h1>
+    <span id="today"></span>
+    <button>오늘날짜</button>
+    <br>
+    <hr>
+
+    <h1>특정 날짜 출력하기</h1>
+    <span id="specific"></span><br>
+    <button>특정날짜</button>
+
+    <h1>D-Day 기능 만들기</h1>
+    시작 날짜 <input type="date" id="startDate" size="50"><br>
+    종료 날짜 <input type="date" id="endDate" size="50"><br>
+    남은 일수 <input type="number" id="res" readonly="readonly"><br>
+    <button>버튼!</button>
+</body>
+<!-- 
+    <script>
+        window.onload=function(){
+            document.getElementsByTagName("button")[0].onclick=function(){
+                alert('버튼1');
+            }
+        }
+
+        alert('script');
+        document.getElementsByTagName('button')[0].onclick=function(){
+            alert('버튼1');
+            //elements가 준비되어 있어서 코드가 읽혀짐
+        }
+
+        window.onload=function(){
+            alert("onload");
+        }
+        alert("Script");
+        //Script를 만드는 과정을 우선적으로 적용
+        //Script가 나오고 그 다음에 onload가 뜸
+    </script>
+-->    
+</html>
