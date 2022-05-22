@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #area{
+            background-color: lemonchiffon;
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function printVal(){
+            let username = document.getElementsByTagName("input")[0].value;
+            // value는 거기에 들어있는 값을 출력해주고
+            // innerHTML은 밖에 있는거를 출력해주는 느낌이랄까
+            let item = document.getElementsByTagName("input")[1].value;
+            let price = document.getElementsByTagName("input")[2].value;
+            
+            let area =  document.getElementById("area");
+            area.innerHTML += "구입자 : "+username+"님<br>";
+            area.innerHTML += "구입상품 : "+item+"<br>";
+            area.innerHTML += "구매가격 : "+price+"만원";
+        }
+    </script>
+</head>
+<body>
+    <h2>연습1</h2>
+    구매자: <input type="text" placeholder="구매자의 이름을 입력하세요" value="">
+    <br><br>
+    상품명: <input type="text" id=pname placeholder="구매 상품명을 입력하세요" value="">
+    <br><br>
+    가격: <input type="text" name="price" placeholder="구매 가격을 입력하세요" value="">
+    <br><br>
+    <button onclick="printVal();">입력값 출력하기</button>
+    <br><br>
+    <div id="area"></div>
+
+</body>
+</html>
