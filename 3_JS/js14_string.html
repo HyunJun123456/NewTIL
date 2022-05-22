@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function stringTest(){
+            let div1 = document.getElementById("div1");
+
+            let str1 = "Apple iPhone";
+            div1.innerHTML += str1.toUpperCase()+"<br>";
+            div1.innerHTML += str1.toLowerCase()+"<br>";
+
+            div1.innerHTML += str1.length+"<br>";
+            div1.innerHTML += str1.indexOf('e')+"<br>";
+            //특정 위치를 찾기
+            div1.innerHTML += str1.lastIndexOf('e')+"<br>";
+            //마지막부터 탐색시작
+
+            div1.innerHTML += str1.substring(8,10)+"<br>";
+            //8번째부터 2개를 잘라옴
+            //인덱스번호로 계산해야함, 띄어쓰기도 포함됨
+
+            let str2 = '사과, 바나나, 복숭아, 키위, 망고, 수박';
+
+            console.log(str2);
+            let fruits = str2.split(", ");
+            //배열을 만들 때 유용하게 사용가능
+            console.log(fruits);
+
+            let str3 = " String ";
+            let str4 = " Test ";
+
+            let str5 = str3+str4;
+            console.log(str5);
+
+            let con = str3.concat(" test "," Java ", " script ");
+            //concat 사용시 '+'가 아니라 ','를 사용해야한다.
+            console.log(con);
+
+
+        }
+    </script>
+</head>
+<body>
+    <h1>string</h1>
+    <h3>" ", ' '로 묶여 있는 리터럴</h3>
+    <button onclick="stringTest();">문자열</button>
+    <div id="div1"></div>
+</body>
+</html>
