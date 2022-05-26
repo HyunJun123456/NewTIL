@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function show01(){
+            let food = document.getElementsByName("food")[0];
+
+            //selctedIndex: 선택한 option 태그의 인덱스값
+            let idx = food.selectedIndex;
+
+            //options: select가 가지고 있는 option 태그들
+            let foodVal = food.options[idx].value;
+            alert(foodVal+" 먹을까요?");
+        }
+    </script>
+</head>
+<body>
+    <h1>저녁 메뉴 추천</h1>
+    <form>
+        <select name="food" onchange="show01();">
+            <option>---선택---</option>
+            <option value="갈비">갈비</option>
+            <option value="삼겹살">삼겹살</option>
+            <option value="족발">족발</option>
+            <option value="케찹">케찹</option>
+            <option value="찜닭">찜닭</option>
+            <option value="감자탕">감자탕</option>
+        </select>
+    </form>
+</body>
+</html>
