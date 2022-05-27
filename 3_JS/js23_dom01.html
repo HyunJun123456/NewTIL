@@ -52,5 +52,19 @@
         <p>test03</p>
         <p>test04</p>
     </div>
+
+    <script>
+        function test01(){
+            let test01 = document.getElementsByTagName('p')[3];
+            let parent = test01.parentNode;
+            parent.style.backgroundColor = "pink";
+            //console.log(parent);
+        }
+        function test02(){
+            let parent = document.getElementsByTagName("div")[2];
+            let children = parent.childNodes[3];
+            children.style.fontSize = "20pt";
+        }
+    </script>
 </body>
 </html>
