@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tableVal(){
+            let doc = document.forms[0];
+            // console.log(doc);
+            let vals = [doc.id.value, doc.pw.value, doc.addr.value, doc.phone.value];
+            console.log(vals);
+
+            for(let i=0; i<vals.length; i++){
+                if(vals[i]==null || vals[i]=="" || vals[i]==undefined){
+                    alert("모두 입력해주세요!!!");
+                    return; //함수 종료
+                }
+            }
+
+            document.getElementById("addtr").appendChild(createRow(vals));
+        }
+
+        function createRow(vals){
+            let tr = document.createElement("tr");
+
+            for(let i=0; i<vals.length; i++){
+                let td = document.createElement("td");
+                td.textContent = vals[i];
+                tr.appendChild(td);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="intable">
+        <table>
+            <tr>
+                <td>I D</td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td>P W</td>
+                <td><input type="text" name="pw"></td>
+            </tr>
+            <tr>
+                <td>ADDR</td>
+                <td><input type="text" name="addr"></td>
+            </tr>
+            <tr>
+                <td>PHONE</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+        </table>
+        <input type="button" value="추가" onclick="tableVal();">
+        <input type="button" value="삭제" onclick="deleteVal();">
+    </form>
+    <hr>
+    <div id="addtable">
+        <table border="1" id="ctb">
+            <col width="100px">
+            <col width="100px">
+            <col width="300px">
+            <col width="100px">
+            <col width="100px">
+            <thead>
+                <tr>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>주소</th>
+                    <th>전화번호</th>
+                    <th>삭제</th>
+
+                </tr>
+            </thead>
+            <tbody id="addtr"></tbody>
+        </table>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img,#imgView{
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+    <script>
+        function createImg(){
+            let radios = document.getElementsByName("rdoBtn");
+            let radioVal = "";
+            for(let i=0; radios.length; i++){
+                if(radios[i].checked){
+                    radioVal = "image/"+radios[i].value;
+                    break;
+                }
+            }
+            //1. img 태그 생성
+            let img = document.createElement("img");
+
+            //2. src 속성에 radioVal값 넣어주고
+            img.setAttribute("src", radioVal);
+
+            //3.
+            let div = document.getElementById("imgView");
+            let chd = document.querySelector("#imgView > img")
+
+            div.replaceChild(img, chd);
+            /*
+                replaceNode = parentNode.replaceChild(newChild, oldChild);
+                - newChild는 oldChild를 교체할 새로운 노드입니다. 만약 이미 DOM 안에 존재한다면
+                  가장 먼저 제거됩니다.
+                - oldChild는 이미 존재하는, 교체될 자식 노드입니다.
+                - replaceNode는 교체된 노드입니다. oldChild와 동일한 노드입니다.
+            */
+        }
+
+        function deleteImg(){
+            let img = document.querySelector("#imgView > img");
+            img.setAttribute("src", " ");
+            //src를 비워줌
+        }
+    </script>
+</head>
+<body>
+    <input type="radio" name="rdoBtn" value="img01.png">그림1 <br>
+    <input type="radio" name="rdoBtn" value="img02.png">그림2 <br>
+    <input type="radio" name="rdoBtn" value="img03.png">그림3 <br>
+
+    <button onclick="createImg();">이미지 생성하기</button>
+    <button onclick="deleteImg();">이미지 삭제하기</button>
+    <div id="imgView"><img src=""></div>
+    <!-- 처음에 아무것도 없는게 싫다면 채워주면 됨!! -->
+</body>
+</html>

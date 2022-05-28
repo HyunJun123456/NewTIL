@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+        width: 300px;
+        height: 400px;
+        vertical-align: middle;
+    }
+    a{
+        font-size: 50px;
+        text-decoration: none;
+    }
+    </style>
+    <script>
+        window.onload=function(){
+            //인라인 방식이 아닌 다른 방식으로 처리하는법
+            let cnt = 1;
+
+            let img = document.querySelector("img");
+            let atags = document.querySelectorAll("a");
+
+            //왼쪽 a태그 클릭
+            atags[0].onclick = function(){
+                let imgAlt = img.getAttribute("alt");
+                // alt값을 가져와라
+                //console.log(imgAlt);
+                if(imgAlt == "img01"){
+                    cnt = 3;
+                    img.setAttribute("alt", "img03");
+                    img.setAttribute("src", "image/img03.png");
+                }else{
+                    --cnt;
+                    img.setAttribute("alt", "img0"+(cnt));
+                    img.setAttribute("src", "image/img0"+cnt+".png");
+                }
+            }
+
+            //오른쪽 a태그 클릭
+            atags[1].onclick = function(){
+                let imgAlt = img.getAttribute("alt");
+                if(imgAlt == "img03"){
+                    cnt = 1;
+                    img.setAttribute("alt", "img01");
+                    img.setAttribute("src", "image/img01.png");
+                }else{
+                    cnt++;
+                    img.setAttribute("alt","img0"+cnt);
+                    img.setAttribute("src", "image/img0"+cnt+".png");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <a href="#" id="left">◀️</a>
+        <img src="image/img01.png" alt="img01">
+        <a href="#" id="right">▶️</a>
+    </div>
+</body>
+</html>
