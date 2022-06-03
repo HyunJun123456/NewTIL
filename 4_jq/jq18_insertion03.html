@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{
+            background-color: orange;
+            text-align: right;
+        }
+        a{
+            text-decoration: none;
+            font-size: 20px;
+        }
+        #menu div{
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .box{
+            border: 2px solid red;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //$("pre").wrap("<b></b>"); //감싸준다.
+            //$("pre").wrapInner("<b></b>"); //pre태그 안에 있는걸 감싼다.
+            $("pre").wrapAll("<b></b>"); //pre태그를 찾아서 전부 감싼다. //다른 곳에 위치해도 같이 묶는다.
+        
+
+        let $box = $('<div>').addClass('box'); //변수명이 $인거임
+            $(".sub_menu:first").wrap($box);
+
+            $(".sub_menu").click(function(){
+                $(".sub_menu").each(function(){
+                    if($(this).parent().is(".box")){
+                        $(this).unwrap(".box");
+                    }
+                });
+                $(this).wrap($box);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <div class="sub_menu">
+            <a href="#"><span>쇼핑</span></a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">뉴스</a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">카페</a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">영화</a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">웹툰</a>
+        </div>
+    </div>
+    <pre>a</pre>
+    <pre>b</pre>
+    <pre>c</pre>
+    <pre>d</pre>
+</body>
+</html>

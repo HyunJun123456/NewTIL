@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('button:eq(0)').click(function(){
+                $('div').prepend('123'); //div 태그(맨 앞쪽)
+            });
+            $('button:eq(1)').click(function(){
+                $('div').append( $('<p>').addClass("append").text("append")); //p태그, 클래스, 텍스트 추가
+            });
+            $('button:eq(2)').click(function(){
+                $('div').html('<b>html 요소를 바꾼다.</b>');
+            });
+            $('button:eq(3)').click(function(){
+                $('div').text("<b>text요소를 바꾼다.</b>"); //단순히 텍스트 노드로 들어간다.
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>prepend()</button>
+    <button>append()</button>
+    <button>html()</button>
+    <button>text()</button>
+    <div>
+        <p>삽입01</p>
+        <p>삽입02</p>
+    </div>
+</body>
+</html>
