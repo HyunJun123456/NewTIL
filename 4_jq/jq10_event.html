@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid red;
+            width: 400px;
+            height: 200px;
+            padding: 20px;
+            overflow: auto;
+            /* 넘치는 값들 어떻게 처리할 것인지 */
+        }
+        div p:first-child{
+            float: left;
+            border: 1px solid blue;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+        }
+        div p:last-child{
+            float: right;
+            border: 1px solid blue;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+            이벤트 전파: 요소들이 서로 포함관계인 경우 요소중 하나에 이벤트가 발생하면
+            중첩이 된 요소들도 이벤트가 전파된다.
+
+            이벤트 전파 막기
+            -stopPropagation(): 이벤트 전파 막기
+            -preventDefault(): 이벤트에 의한 기본동작 막기
+            -return false
+        */
+       $(function(){
+            $("a:eq(0)").click(function(e){
+                alert("a클릭!");
+                //e.stopPropagation();
+                //a클릭이나오고 네이버로 넘어감
+                //e.preventDefault();
+                //a클릭, p클릭, div클릭이 나오고 네이버로 넘어가지 않음
+                return false;
+                //a클릭만 나오고 네이버로 넘어가지 않음
+            });
+            $("p").click(function(){
+                alert("p클릭!");
+            });
+            $("div").click(function(){
+                alert("div클릭!");
+            });
+
+            $("a:eq(1)").bind({
+                "mouseover":function(){
+                    $(this).css("background-color","pink");
+                },
+                "mouseout":function(){
+                    $(this).css("background-color","skyblue");
+                }
+            });
+            //mouseout이 발생하면 배경색을 skyblue로
+
+            $("button").click(function(){
+                $("body").append('<p>새로 추가된 p태그</p>');
+            });
+            $("body").on('click','>p',function(){
+                alert("새로 추가된 요소도 이벤트 적용가능");
+                //바디에 자식들에게 새로 추가된 요소 이벤트를 적용시켜줌
+            });
+
+            $('span').click(function(){
+                alert('span클릭!');
+                $('body>p').unbind();
+                //이벤트 끊어버리기 (a태그 같은거)
+            });
+       });
+    </script>
+</head>
+<body>
+    <div>
+        <p>
+            <a href="https://www.naver.com">클릭!</a>
+        </p>
+        <p>
+            클릭!
+        </p>
+    </div>
+
+    <div>
+        <p>
+            <a href="https://www.google.com">클릭!</a>
+        </p>
+        <p>
+            클릭!
+        </p>
+    </div>
+    <span>이벤트 해제</span>
+    <button>버튼클릭!</button>
+</body>
+</html>
