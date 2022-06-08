@@ -8,3 +8,4 @@ public class MessageBeanEn implements MessageBean {
 	}
 	
 }
+

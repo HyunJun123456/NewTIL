@@ -6,3 +6,4 @@
 	<bean id="korean" class="com.test02.MessageBeanKo"></bean>
 	<bean id="english" class="com.test02.MessageBeanEn"></bean>
 </beans>
+
